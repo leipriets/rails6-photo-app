@@ -48,4 +48,4 @@ yarn-debug.log*
 !.vscode/extensions.json
 
 # VSCode Local History
-/.history/*
+**/.history/
