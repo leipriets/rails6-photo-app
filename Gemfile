@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Add Gems
+gem 'aws-ses', '~> 0.4.4', require: 'aws/ses'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
