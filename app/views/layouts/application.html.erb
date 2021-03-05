@@ -38,10 +38,21 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+          <ul class="nav navbar-right col-md-4">
+            <% if current_user %>
+              <li class="nav-link">
+                <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe,
+                                                            edit_user_registration_path, title: 'Edit Profile' %>
+              </li>
+              <li class="nav-link"> </li>
+              <li class="nav-link logout"><%= link_to('Logout', destroy_user_session_path,
+                                    class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
+            <% else %>
+              <li class="col-md-4 pull-right">
+                <%= link_to('Sign In', new_user_session_path, class: 'btn btn-primary', title: 'Sign In') %>
+              </li>
+            <% end %>
+          </ul>
       </div>
     </div>
   </nav>
@@ -55,21 +66,6 @@
           <%= render 'layouts/messages' %>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
-          <div class="card mt-4 sidebar-nav">
-            <div class="card-header">
-                <h5>Sidebar</h5>
-            </div>
-
-            <div class="card-body">
-                <ul class="list-group">
-                  <li class="list-group-item"><%= link_to "Link1", "/path1" %></li>
-                  <li class="list-group-item"><%= link_to "Link2", "/path2"  %></li>
-                  <li class="list-group-item"><%= link_to "Link3", "/path3"  %></li>
-                </ul>
-            </div>
-          </div><!--/.well -->
-        </div><!--/span-->
       </div><!--/row-->
 
       <footer>
